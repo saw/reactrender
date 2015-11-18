@@ -1,0 +1,14 @@
+{
+  "name": "reactrender",
+  "version": "1.0.0",
+  "description": "A mountable react renderer for express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-jsx": "^0.13.3"
+  }
+}
