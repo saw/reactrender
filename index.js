@@ -4,6 +4,7 @@ require('node-jsx').install();
 
 
 var start, end;
+var clientScript;
 
 var wrapper = fs.readFileSync(__dirname + '/../views/layout.html', 'utf-8');
 var arr = wrapper.split('{{content}}');
@@ -19,12 +20,16 @@ var engine = function(filePath, options, callback) {
 	out += rendered;
 	out += '<script>var props = ' + JSON.stringify(options) + '</script>';
 	out += end;
+	if(clientScript) {
+		out.replace('{{clientScript}}', clientScript);
+	}
+	
 	callback(null, out);
 }
 
 module.exports = {
 	createEngine: function(config) {
-		wrapper = 
+		clientScript = config.clientScript || '';
 		return engine;
 	}
 }
